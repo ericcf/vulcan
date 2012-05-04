@@ -1,0 +1,6 @@
+<%= simple_form_for [@project, @ticket] do |f| %>
+  <%= f.input :title, input_html: { class: 'span5' }  %>
+  <div class="form-actions">
+    <%= f.button :submit, 'Save', class: 'btn btn-primary' %>
+  </div>
+<% end %>

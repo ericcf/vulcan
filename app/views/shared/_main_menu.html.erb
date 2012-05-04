@@ -1,0 +1,21 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to 'Vulcan', root_path, class: 'brand' %>
+      <ul class="nav">
+        <li class="dropdown">
+          <%= link_to 'Projects <b class="caret"></b>'.html_safe, '#', class: 'dropdown-toggle', :'data-toggle' => 'dropdown' %>
+          <ul class="dropdown-menu">
+            <% all_projects.alphabetized.each do |project| %>
+              <li><%= link_to project.title, project_path(project) %></li>
+            <% end %>
+          </ul>
+        </li>
+        <li><%= link_to 'Add project', new_project_path %></li>
+        <% if @project.try(:id) %>
+          <li><%= link_to 'Add ticket', new_project_ticket_path(@project) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

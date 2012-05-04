@@ -7,5 +7,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+logfile
 
 config/database.yml

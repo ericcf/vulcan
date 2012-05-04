@@ -1,0 +1,13 @@
+<tr class="ticket">
+  <td class="title"><%= ticket.title %></td>
+  <td>
+    <% if ticket.status == 'open' %>
+      <%= link_to '<i class="icon-ok icon-white"></i> Close'.html_safe, { controller: 'tickets', action: 'update', project_id: @project.id, id: ticket.id, ticket: { status: 'closed' } }, method: :put, class: 'btn btn-success' %>
+    <% else %>
+      <%= link_to 'Reopen', { controller: 'tickets', action: 'update', project_id: @project.id, id: ticket.id, ticket: { status: 'open' } }, method: :put, class: 'btn btn-warning' %>
+    <% end %>
+  </td>
+  <td></td>
+  <td></td>
+  <td><%= friendly_time ticket.updated_at %></td>
+</tr>

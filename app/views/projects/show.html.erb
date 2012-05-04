@@ -1,0 +1,24 @@
+<div class="page-header">
+  <h2 class="title"><%= @project.title %></h2>
+</div>
+
+<% if params[:closed_tickets] %>
+  <%= link_to 'open tickets', project_path(@project) %>
+<% else %>
+  <%= link_to 'closed tickets', project_path(@project, closed_tickets: true) %>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Category</th>
+      <th>Priority</th>
+      <th>Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @tickets %>
+  </tbody>
+</table>

@@ -1,0 +1,6 @@
+<% if flash.empty? %>
+  <div id="alert" class="alert alert-placeholder">&nbsp;</div>
+<% else %>
+  <% primary_key = [:error, :warning, :success, :info].detect { |k| !flash[k].nil? } %>
+  <div id="alert" class="alert alert-<%= primary_key %>"><%= flash[primary_key] %></div>
+<% end %>

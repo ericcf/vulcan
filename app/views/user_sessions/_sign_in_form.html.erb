@@ -1,0 +1,8 @@
+<%= simple_form_for @user, url: user_sessions_path do |f| %>
+  <%= f.input :username, required: false, autofocus: true %>
+  <%= f.input :password %>
+  <%= check_box_tag 'remember_me' %> Remember me
+  <div class="form-actions">
+    <%= f.submit "Sign in", class: "btn btn-primary" %>
+  </div>
+<% end %>
