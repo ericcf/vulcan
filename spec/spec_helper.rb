@@ -3,9 +3,8 @@ begin
   require 'spork'
 rescue LoadError
   class Spork
-    def self.prefork
-      yield
-    end
+    def self.prefork; yield; end
+    def self.each_run; yield; end
   end
 end
 
