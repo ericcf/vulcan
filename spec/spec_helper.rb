@@ -1,5 +1,13 @@
 require 'rubygems'
-require 'spork'
+begin
+  require 'spork'
+rescue LoadError
+  class Spork
+    def self.prefork
+      yield
+    end
+  end
+end
 
 Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
