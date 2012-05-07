@@ -5,9 +5,9 @@ feature 'Ticket status management' do
 
   include_context 'authentication helper'
 
-  let(:project) { Project.create(title: 'Kayaking') }
-  let!(:ticket_a) { project.tickets.create(title: 'Get into kayak') }
-  let!(:ticket_b) { project.tickets.create(title: 'Exit kayak', status: 'closed') }
+  let(:project) { Project.create!(title: 'Kayaking') }
+  let!(:ticket_a) { project.tickets.create(title: 'Get into kayak', user_id: User.last.id) }
+  let!(:ticket_b) { project.tickets.create(title: 'Exit kayak', status: 'closed', user_id: User.last.id) }
   let(:project_page) { ProjectPages::Show.new(page, id: project.id).visit }
 
   background do

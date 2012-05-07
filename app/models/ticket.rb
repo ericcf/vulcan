@@ -6,8 +6,9 @@ class Ticket
   STATUSES = %w[open closed]
 
   property :id,         Serial
-  property :title,      String, required: true
-  property :status,     String, required: true, default: 'open'
+  property :title,      String,  required: true
+  property :status,     String,  required: true, default: 'open'
+  property :user_id,    Integer, required: true
   property :created_at, DateTime
   property :updated_at, DateTime
 
