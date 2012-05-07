@@ -31,10 +31,12 @@ end
 gem 'simple_form'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails', '~> 2.0.1'
+gem 'uglifier'
 
 group :development do
   gem 'debugger', require: 'ruby-debug'
   gem 'capistrano', '~> 2.11.2'
+  gem 'rvm-capistrano'
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spork'
