@@ -1,0 +1,13 @@
+defaults: &defaults
+  username: root
+  adapter: postgres
+
+development:
+  database: vulcan_development
+  <<: *defaults
+test:
+  database: vulcan_test
+  <<: *defaults
+production:
+  database: vulcan_production
+  <<: *defaults
