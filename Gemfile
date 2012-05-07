@@ -40,11 +40,14 @@ group :development, :test do
   gem 'debugger', require: 'ruby-debug'
 end
 
-group :test do
+group :development do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'growl'
+end
+
+group :test do
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'capybara-webkit'
