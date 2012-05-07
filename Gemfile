@@ -32,6 +32,7 @@ gem 'simple_form'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails', '~> 2.0.1'
 gem 'uglifier'
+gem 'whenever'
 
 group :development do
   gem 'debugger', require: 'ruby-debug'

@@ -3,7 +3,7 @@ require 'pages/user_session_pages/new'
 
 feature 'Authentication' do
 
-  let!(:user) { User.create(username: 'oscar', password: 'grouch', password_confirmation: 'grouch') }
+  let!(:user) { User.create(username: 'oscar', password: 'grouch', password_confirmation: 'grouch', email: 'oscar@sstreet.com') }
   let(:login_page) { UserSessionPages::New.new(page) }
 
   background do
