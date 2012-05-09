@@ -18,6 +18,6 @@ feature 'Project creation' do
       project_page = new_project_page.save
     }.to change{Project.count}.from(0).to(1)
     project_page.alert('success').should eq('Saved project.')
-    project_page.title.should eq('Vulcan')
+    project_page.title.should eq('Vulcan open tickets')
   end
 end

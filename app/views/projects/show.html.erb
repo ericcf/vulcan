@@ -1,22 +1,26 @@
 <div class="page-header">
-  <h2 class="title"><%= @project.title %></h2>
+  <h2 class="title"><%= @project.title %> <small><%= params[:closed_tickets] ? 'closed tickets' : 'open tickets' %></h2>
+
+  <% if params[:closed_tickets] %>
+    <%= link_to 'show open tickets', project_path(@project) %>
+  <% else %>
+    <%= link_to 'show closed tickets', project_path(@project, closed_tickets: true) %>
+  <% end %>
 </div>
 
-<% if params[:closed_tickets] %>
-  <%= link_to 'open tickets', project_path(@project) %>
+<% if @tickets.count == 0 %>
+  <h3>No tickets</h3>
 <% else %>
-  <%= link_to 'closed tickets', project_path(@project, closed_tickets: true) %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>Updated</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @tickets %>
+    </tbody>
+  </table>
 <% end %>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th>Updated</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @tickets %>
-  </tbody>
-</table>
