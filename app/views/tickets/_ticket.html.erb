@@ -7,7 +7,5 @@
       <%= link_to 'Reopen', { controller: 'tickets', action: 'update', project_id: @project.id, id: ticket.id, ticket: { status: 'open' } }, method: :put, class: 'btn btn-warning' %>
     <% end %>
   </td>
-  <td></td>
-  <td></td>
   <td><%= friendly_time ticket.updated_at %></td>
 </tr>
