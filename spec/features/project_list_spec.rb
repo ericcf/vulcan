@@ -6,7 +6,8 @@ feature 'Projects page' do
   include_context 'authentication helper'
 
   background do
-    Project.create(title: 'Zeta')
+    zeta = Project.create(title: 'Zeta')
+    zeta.tickets.create(title: 'last', user_id: 1)
     Project.create(title: 'Alpha')
     Project.create(title: 'Beta')
     sign_in
@@ -14,6 +15,6 @@ feature 'Projects page' do
 
   scenario 'view all projects in alphabetical order' do
     projects_page = ProjectPages::Index.new(page).visit
-    projects_page.project_titles.should eq(['Alpha', 'Beta', 'Zeta'])
+    projects_page.project_titles.should eq(['Alpha', 'Beta', 'Zeta 1'])
   end
 end
