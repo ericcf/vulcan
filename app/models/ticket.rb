@@ -12,5 +12,15 @@ class Ticket
   property :created_at, DateTime
   property :updated_at, DateTime
 
+  belongs_to :project
+
   validates_within :status, set: STATUSES
+
+  def self.last_updated_since(date)
+    all(:updated_at.gt => date, :order => [:updated_at.desc])
+  end
+
+  def self.closed
+    all(status: 'closed', :order => [:updated_at.desc])
+  end
 end

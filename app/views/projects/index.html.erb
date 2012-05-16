@@ -1,1 +1,12 @@
-<%= render all_projects.alphabetized %>
+<div class="row">
+  <div class="span3">
+    <%= render all_projects.alphabetized %>
+  </div>
+
+  <div class="span3 offset2">
+    <% @recent_closed_tickets.each do |date, tickets| %>
+      <h4><%= date.to_date.to_s(:long) %></h4>
+      <%= render partial: 'tickets/short_ticket', collection: tickets %>
+    <% end %>
+  </div>
+</div>

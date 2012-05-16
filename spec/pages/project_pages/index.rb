@@ -25,6 +25,10 @@ module ProjectPages
       page.all('.project .title').map { |t| t.text }
     end
 
+    def closed_tickets
+      page.all('.closed-ticket .title').map { |t| t.text }
+    end
+
     def add_project
       page.click_on('Add project')
 
