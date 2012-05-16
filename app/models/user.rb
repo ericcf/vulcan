@@ -22,6 +22,6 @@ class User
   end
 
   def tickets_in_date_range(start_date, end_date)
-    tickets.all(status: 'closed', :updated_at.gte => start_date, :updated_at.lte => end_date)
+    tickets.all(status: 'closed', :updated_at.gte => start_date, :updated_at.lt => end_date)
   end
 end

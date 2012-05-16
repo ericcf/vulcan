@@ -9,7 +9,8 @@ describe UserNotifications do
     let(:ticket) { mock_model(Ticket, title: 'Get a job') }
 
     before do
-      user.stub!(:tickets_in_date_range).with(Date.yesterday, Date.yesterday) { [ticket] }
+      user.stub!(:tickets_in_date_range).
+        with(Date.yesterday, Date.today) { [ticket] }
     end
 
     it 'should list closed tickets from yesterday' do
