@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   rescue_from DataMapper::ObjectNotFoundError, with: :not_found
 
   def index
-    @recent_closed_tickets = (Ticket.last_updated_since(Date.today - 1.week) & Ticket.closed).group_by(&:updated_at)
+    @recent_closed_tickets = (Ticket.last_updated_since(Date.today - 1.week) & Ticket.closed).group_by { |t| t.updated_at.to_date }
   end
 
   def show
